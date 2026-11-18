@@ -55,13 +55,13 @@ export default async function HomePage() {
 
             <div className="relative mx-auto my-8 w-full max-w-[620px]">
               <Image
-                src="/images/editorial/hero-eyewear.jpg"
+                src="/images/editorial/hero-eyewear-2026.jpg"
                 alt="Gọng kính KEOZ màu bạc"
                 width={952}
                 height={474}
                 priority
                 sizes="(min-width: 1024px) 40vw, 90vw"
-                className="h-auto w-full object-contain"
+                className="h-auto w-full object-contain mix-blend-multiply"
               />
             </div>
 

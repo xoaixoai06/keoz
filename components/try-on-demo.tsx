@@ -156,7 +156,7 @@ export function TryOnDemo() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/editorial/hero-eyewear.jpg"
+                src="/images/editorial/hero-eyewear-2026.jpg"
                 alt="Gọng kính KEOZ"
                 draggable={false}
                 className="w-full mix-blend-multiply"

@@ -44,7 +44,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:grid-cols-2">
+          <div className="grid grid-cols-2 gap-8">
             <FooterColumn title="Cửa hàng" links={shopLinks} />
             <FooterColumn title="KEOZ" links={aboutLinks} />
             <FooterColumn title="Chính sách" links={policyLinks} />
@@ -63,7 +63,10 @@ export function SiteFooter() {
                     className="flex min-w-0 gap-3 transition-colors hover:text-white"
                   >
                     <Mail className="mt-0.5 size-4 shrink-0 text-keoz-red" />
-                    <span className="break-all">contact@keozeyewear.com</span>
+                    <span>
+                      contact@<wbr />
+                      keozeyewear.com
+                    </span>
                   </a>
                 </li>
                 <li>

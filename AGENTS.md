@@ -96,11 +96,16 @@ Nếu thêm bảng: cập nhật `supabase/schema.sql`, bật RLS, thêm policy,
 - Build production sạch, TypeScript sạch.
 - QA trực quan desktop + mobile các trang chính.
 
+- [x] Supabase thật: project `tixywqphdpkrqpeihtja`, đã chạy `supabase/schema.sql` (3 category, 6 product, 7 policy).
+- [x] Kiểm thử đặt hàng với DB thật: đơn `KEOZ-OLATR4` đã lưu vào `orders` + `order_items`.
+- [x] Deploy Vercel team `cmcu1`: production **https://keoz.vercel.app**, `NEXT_PUBLIC_SITE_URL` đã set.
+- [x] UI/UX Pro Max skill cài global cho mọi agent; design system tại `design-system/keoz/MASTER.md` (brand token trong `app/globals.css` là nguồn quyết định).
+
 Chưa xong / cần làm khi có điều kiện:
 
-- [ ] Tạo project Supabase thật, chạy `schema.sql`, điền `.env.local`.
-- [ ] Kiểm thử luồng đơn hàng với DB thật (hiện chỉ demo mode).
-- [ ] Deploy Vercel + gắn domain, cập nhật `NEXT_PUBLIC_SITE_URL`.
+- [ ] Owner xác nhận Supabase Auth **Confirm email** đang bật (xem `C:\Users\Admin\security-audit-skill\keoz\run-1\NEEDS-VALIDATION.md`).
+- [ ] Owner kiểm tra Vercel dùng lockfile khi install và key `NEXT_PUBLIC_SUPABASE_ANON_KEY` có role `anon`.
+- [ ] Gắn custom domain (nếu có) rồi cập nhật `NEXT_PUBLIC_SITE_URL`.
 - [ ] Bổ sung mô hình 3D cho try-on (hiện là overlay 2D).
 - [ ] Ảnh sản phẩm có thể nén sang WebP/AVIF nếu cần tối ưu thêm.
 
@@ -119,6 +124,9 @@ Chưa xong / cần làm khi có điều kiện:
 - 19/11/2026 — chuyển hướng: init git, `.gitignore` template, scaffold Next.js + Supabase.
 - 19/11/2026 — hoàn thiện toàn bộ trang, component, schema; build + QA desktop/mobile.
 - 19/11/2026 — đổi nhãn "AR/VR" thành "Thử kính", route `/try-on` (giữ redirect `/ar-vr`).
+- 19/11/2026 — deploy Vercel `cmcu1/keoz` → https://keoz.vercel.app; repo GitHub `xoaixoai06/keoz`.
+- 19/11/2026 — audit bảo mật quick profile (17 unit, 0 confirmed, 3 needs-validation) tại `C:\Users\Admin\security-audit-skill\keoz\run-1`.
+- 19/11/2026 — nâng cấp UI/UX toàn diện (scroll reveal, hover, ken-burns, sheen, progress bar) + vá hardening giỏ/camera/sitemap.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

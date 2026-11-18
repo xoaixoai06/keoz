@@ -30,14 +30,14 @@ export default async function HomePage() {
               fill
               priority
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover object-center"
+              className="object-cover object-center hero-ken-burns"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10">
-              <p className="mb-3 text-[10px] uppercase tracking-[0.34em] text-white/70">
+              <p className="mb-3 animate-rise text-[10px] uppercase tracking-[0.34em] text-white/70">
                 Bộ sưu tập 2026
               </p>
-              <h1 className="font-display text-4xl leading-[0.92] text-white sm:text-6xl lg:text-7xl">
+              <h1 className="animate-rise font-display text-4xl leading-[0.92] text-white sm:text-6xl lg:text-7xl" style={{ animationDelay: "120ms" }}>
                 Tầm nhìn
                 <br />
                 vượt thời gian
@@ -47,7 +47,7 @@ export default async function HomePage() {
 
           <div className="relative flex flex-col justify-between bg-keoz-paper p-6 sm:p-10 lg:p-14">
             <div className="flex items-start justify-between">
-              <p className="text-[10px] uppercase tracking-[0.34em] text-keoz-muted">
+              <p className="animate-rise text-[10px] uppercase tracking-[0.34em] text-keoz-muted" style={{ animationDelay: "80ms" }}>
                 KEOZ Studio — Hà Nội
               </p>
               <Sparkles className="size-4 text-keoz-red" />
@@ -65,7 +65,7 @@ export default async function HomePage() {
               />
             </div>
 
-            <div className="max-w-md">
+            <div className="max-w-md animate-rise" style={{ animationDelay: "300ms" }}>
               <p className="text-sm leading-relaxed text-keoz-muted sm:text-base">
                 Những đường nét tối giản, chất liệu titan và acetate Ý. Được
                 chế tác để trở thành một phần của bạn — không phải phụ kiện.
@@ -73,7 +73,7 @@ export default async function HomePage() {
               <div className="mt-7 flex flex-wrap items-center gap-4">
                 <Link
                   href="/products"
-                  className="inline-flex h-12 items-center gap-3 bg-keoz-red px-7 text-[11px] uppercase tracking-[0.24em] text-white transition-colors hover:bg-keoz-red-dark"
+                  className="btn-sheen inline-flex h-12 items-center gap-3 bg-keoz-red px-7 text-[11px] uppercase tracking-[0.24em] text-white transition-colors hover:bg-keoz-red-dark"
                 >
                   Khám phá bộ sưu tập
                   <ArrowRight className="size-4" />
@@ -131,7 +131,7 @@ export default async function HomePage() {
 
       {/* Statement */}
       <section className="bg-keoz-ink px-4 py-20 text-keoz-cream sm:px-6 sm:py-28 lg:px-10">
-        <div className="mx-auto max-w-4xl text-center">
+        <div data-reveal className="mx-auto max-w-4xl text-center">
           <p className="mb-6 text-[10px] uppercase tracking-[0.34em] text-white/45">
             Triết lý thiết kế
           </p>
@@ -158,6 +158,7 @@ export default async function HomePage() {
             <Link
               key={category.slug}
               href={`/collections/${category.slug}`}
+              data-reveal
               className="group relative block overflow-hidden bg-keoz-cream"
             >
               <div className="relative aspect-[4/5] overflow-hidden">
@@ -193,7 +194,7 @@ export default async function HomePage() {
       {/* Film */}
       <section className="border-y border-keoz-line bg-keoz-cream">
         <div className="mx-auto grid max-w-[1600px] items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-10">
-          <div className="relative aspect-video overflow-hidden bg-keoz-ink">
+          <div data-reveal className="relative aspect-video overflow-hidden bg-keoz-ink">
             <video
               className="absolute inset-0 size-full object-cover"
               autoPlay
@@ -211,7 +212,7 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div>
+          <div data-reveal>
             <p className="mb-4 text-[10px] uppercase tracking-[0.34em] text-keoz-muted">
               Chế tác
             </p>
@@ -257,7 +258,7 @@ export default async function HomePage() {
       {/* Try-on band */}
       <section className="relative overflow-hidden bg-keoz-red text-white">
         <div className="mx-auto grid max-w-[1600px] items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:px-10">
-          <div>
+          <div data-reveal>
             <p className="mb-4 text-[10px] uppercase tracking-[0.34em] text-white/55">
               KEOZ Lab
             </p>
@@ -279,7 +280,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="relative aspect-[5/4] overflow-hidden">
+          <div data-reveal className="relative aspect-[5/4] overflow-hidden image-reveal">
             <Image
               src="/images/editorial/studio-eyewear.jpg"
               alt="Kính KEOZ trong studio"

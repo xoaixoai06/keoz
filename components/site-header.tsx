@@ -84,11 +84,10 @@ export function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  data-active={isActive(item.href)}
                   className={cn(
-                    "border-b pb-1 text-[10px] uppercase tracking-[0.24em] transition-colors",
-                    isActive(item.href)
-                      ? "border-white text-white"
-                      : "border-transparent text-white/80 hover:border-white/50 hover:text-white",
+                    "nav-link pb-1 text-[10px] uppercase tracking-[0.24em] transition-colors",
+                    isActive(item.href) ? "text-white" : "text-white/80 hover:text-white",
                   )}
                 >
                   {item.label}

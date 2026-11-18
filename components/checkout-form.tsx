@@ -236,7 +236,7 @@ export function CheckoutForm() {
         <button
           type="submit"
           disabled={pending}
-          className="mt-6 flex h-12 w-full items-center justify-center gap-3 bg-keoz-red px-6 text-[11px] uppercase tracking-[0.24em] text-white transition-colors hover:bg-keoz-red-dark disabled:cursor-not-allowed disabled:opacity-60"
+          className="btn-sheen mt-6 flex h-12 w-full items-center justify-center gap-3 bg-keoz-red px-6 text-[11px] uppercase tracking-[0.24em] text-white transition-colors hover:bg-keoz-red-dark disabled:cursor-not-allowed disabled:opacity-60"
         >
           {pending ? (
             <>

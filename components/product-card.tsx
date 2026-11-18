@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/types";
 import { cn } from "@/lib/format";
@@ -16,7 +17,7 @@ export function ProductCard({
   const [first, second] = product.images;
 
   return (
-    <Link href={`/products/${product.slug}`} className="group block">
+    <Link href={`/products/${product.slug}`} data-reveal className="group block">
       <div className="relative aspect-[4/5] overflow-hidden bg-[#ece9e4]">
         <Image
           src={first}
@@ -41,6 +42,9 @@ export function ProductCard({
             Limited
           </span>
         ) : null}
+        <span className="absolute bottom-3 right-3 grid size-9 translate-y-2 place-items-center bg-white/90 text-keoz-red opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+          <ArrowUpRight className="size-4" />
+        </span>
       </div>
 
       <div className="mt-4 flex items-start justify-between gap-3">

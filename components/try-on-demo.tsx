@@ -12,6 +12,7 @@ export function TryOnDemo() {
   const dragRef = useRef<{ x: number; y: number; ox: number; oy: number } | null>(
     null,
   );
+  const mountedRef = useRef(true);
 
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
@@ -28,7 +29,13 @@ export function TryOnDemo() {
     setStatus("idle");
   }, []);
 
-  useEffect(() => () => stop(), [stop]);
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      stop();
+    };
+  }, [stop]);
 
   const start = async () => {
     setStatus("loading");
@@ -45,6 +52,12 @@ export function TryOnDemo() {
         video: { facingMode: "user", width: { ideal: 1280 } },
         audio: false,
       });
+
+      // Quyền có thể được cấp sau khi component đã unmount: dừng stream ngay.
+      if (!mountedRef.current) {
+        stream.getTracks().forEach((track) => track.stop());
+        return;
+      }
 
       streamRef.current = stream;
 

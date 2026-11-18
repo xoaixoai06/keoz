@@ -36,13 +36,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
         const parsed = JSON.parse(raw) as CartItem[];
         if (Array.isArray(parsed)) {
           setItems(
-            parsed.filter(
-              (item) =>
-                typeof item?.slug === "string" &&
-                typeof item?.price === "number" &&
-                typeof item?.quantity === "number" &&
-                item.quantity > 0,
-            ),
+            parsed.filter((item) => {
+              if (!item || typeof item !== "object") return false;
+              return (
+                typeof item.slug === "string" &&
+                item.slug.length > 0 &&
+                typeof item.name === "string" &&
+                typeof item.model === "string" &&
+                typeof item.image === "string" &&
+                Number.isFinite(item.price) &&
+                Number.isInteger(item.quantity) &&
+                item.quantity >= 1 &&
+                item.quantity <= 20
+              );
+            }),
           );
         }
       }

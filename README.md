@@ -2,6 +2,10 @@
 
 Website thương mại điện tử KEOZ, viết lại từ giao diện Wix thành **Next.js 16 (App Router) + TypeScript + Tailwind CSS 4**, dữ liệu trên **Supabase**. Deploy đích: **Vercel**.
 
+- Production: **https://keoz.vercel.app** (team Vercel `cmcu1`)
+- GitHub: **https://github.com/xoaixoai06/keoz**
+- Báo cáo audit bảo mật: `C:\Users\Admin\security-audit-skill\keoz\run-1\REPORT.md`
+
 > Đây là bản demo/portfolio: không có thanh toán thật, không có đăng nhập bắt buộc.
 > Khi chưa cấu hình Supabase, site tự chạy bằng dữ liệu seed trong `lib/seed.ts`.
 

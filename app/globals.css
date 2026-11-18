@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --color-keoz-red: #930500;
+  --color-keoz-red-dark: #6b0300;
+  --color-keoz-red-deep: #4a0200;
+  --color-keoz-cream: #f6f1e8;
+  --color-keoz-paper: #fbf9f5;
+  --color-keoz-ink: #131110;
+  --color-keoz-muted: #7c756c;
+  --color-keoz-line: #ddd5c8;
+
+  --font-sans: var(--font-keoz-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-keoz-display), ui-serif, Georgia, serif;
+
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+:root {
+  --background: #fbf9f5;
+  --foreground: #131110;
+}
+
+@layer base {
+  * {
+    border-color: color-mix(in srgb, #131110 12%, transparent);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: #930500;
+    color: #fbf9f5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 1px solid #930500;
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .marquee-track {
+    animation: var(--animate-marquee);
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.14'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

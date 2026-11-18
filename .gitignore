@@ -9,10 +9,8 @@ out/
 .vercel/
 next-env.d.ts
 
-# env
-.env
-.env.local
-.env.*.local
+# env — không commit bất kỳ file .env nào
+.env*
 !.env.example
 
 # legacy / original captures (giữ local, không đưa lên git)
@@ -21,8 +19,23 @@ next-env.d.ts
 /keoz-site/
 /tools/
 
-# misc
+# build / cache
+*.tsbuildinfo
+.turbo/
+coverage/
+.eslintcache
+
+# editor / OS
 .DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+*.swp
+*.swo
+
+# misc
 *.pem
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -15,16 +15,18 @@ function StudioPanel({
   right,
   text,
   dark,
+  heading,
 }: {
   left: string;
   right: string;
   text: string;
   dark: boolean;
+  heading?: string;
 }) {
   return (
     <section className={dark ? "bg-keoz-ink text-white" : "bg-white text-keoz-ink"}>
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden bg-[#e9e6e1] lg:aspect-auto lg:min-h-[520px]">
+        <div className="relative aspect-[4/3] overflow-hidden bg-[#e9e6e1] lg:aspect-auto lg:min-h-[840px]">
           <Image
             src={left}
             alt="Chi tiết gọng kính KEOZ"
@@ -32,8 +34,13 @@ function StudioPanel({
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover object-center"
           />
+          {heading ? (
+            <p className="absolute left-5 top-5 text-[26px] font-semibold leading-tight text-white drop-shadow-sm">
+              {heading}
+            </p>
+          ) : null}
         </div>
-        <div className="relative aspect-[4/3] overflow-hidden bg-[#e9e6e1] lg:aspect-auto lg:min-h-[520px]">
+        <div className="relative aspect-[4/3] overflow-hidden bg-[#e9e6e1] lg:aspect-auto lg:min-h-[840px]">
           <Image
             src={right}
             alt="Gọng kính KEOZ trong ánh sáng studio"
@@ -50,7 +57,7 @@ function StudioPanel({
               <br />
               2026
             </div>
-            <p className="max-w-xs bg-white px-6 py-5 text-sm leading-relaxed text-keoz-ink">
+            <p className="max-w-xs bg-white px-6 py-5 text-[15.6px] leading-relaxed text-keoz-red">
               {text}
             </p>
           </div>
@@ -72,7 +79,7 @@ export default async function HomePage() {
     <>
       {/* Hero — image-led, as on the original Wix site */}
       <section className="bg-keoz-paper">
-        <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:min-h-[62svh] lg:grid-cols-2">
+        <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:min-h-[800px] lg:grid-cols-2">
           <div className="relative aspect-[4/5] overflow-hidden bg-[#ece9e4] sm:aspect-[16/11] lg:aspect-auto">
             <Image
               src="/images/editorial/hero-model.jpg"
@@ -84,7 +91,7 @@ export default async function HomePage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10">
-              <h1 className="font-display text-4xl leading-none text-white sm:text-6xl lg:text-7xl">
+              <h1 className="text-[28px] font-semibold leading-tight text-white sm:text-[36px]">
                 {homeCopy.hero}
               </h1>
             </div>
@@ -108,7 +115,7 @@ export default async function HomePage() {
       <section className="bg-white">
         <div className="mx-auto max-w-[1600px] px-4 py-12 sm:px-6 sm:py-16 lg:px-10">
           <div className="flex flex-col gap-3 border-b border-keoz-line pb-6 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="font-display text-4xl uppercase leading-none text-keoz-red sm:text-5xl lg:text-6xl">
+            <h2 className="text-[2rem] font-semibold uppercase leading-none text-keoz-red sm:text-[47px]">
               {homeCopy.bestSeller}
             </h2>
             <p className="text-[10px] uppercase tracking-[0.24em] text-keoz-muted">
@@ -128,13 +135,12 @@ export default async function HomePage() {
       </section>
 
       {/* Studio image panels */}
-      <div className="bg-white px-4 pb-8 pt-12 sm:px-6 lg:px-10">
-        <h2 className="mx-auto max-w-[1600px] font-display text-3xl leading-none text-keoz-ink sm:text-4xl">
-          {homeCopy.studioHeading}
-        </h2>
-      </div>
-      {homeCopy.studio.map((panel) => (
-        <StudioPanel key={panel.right} {...panel} />
+      {homeCopy.studio.map((panel, index) => (
+        <StudioPanel
+          key={panel.right}
+          {...panel}
+          heading={index === 0 ? homeCopy.studioHeading : undefined}
+        />
       ))}
 
       {/* Product specifications from the original Wix copy */}
@@ -151,8 +157,8 @@ export default async function HomePage() {
       {/* Collections */}
       <section className="bg-white">
         <div className="mx-auto max-w-[1600px] px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
-          <h2 className="font-display text-3xl leading-none text-keoz-ink sm:text-4xl">
-            Lựa chọn phong cách của bạn
+          <h2 className="text-[27px] font-semibold leading-none text-keoz-red">
+            {homeCopy.collectionsHeading}
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-6">
             {collections.map((category) => (
@@ -171,7 +177,7 @@ export default async function HomePage() {
                   />
                 </div>
                 <div className="flex items-center justify-between gap-4 border-t border-keoz-line bg-white px-5 py-4">
-                  <span className="font-display text-xl text-keoz-ink">
+                  <span className="text-[22px] font-medium text-keoz-red">
                     {homeCopy.collectionLabels[category.slug] ?? category.name}
                   </span>
                   <span className="bg-keoz-red px-5 py-2 text-[10px] uppercase tracking-[0.24em] text-white">

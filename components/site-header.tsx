@@ -53,8 +53,8 @@ export function SiteHeader() {
     <>
       <header className="sticky top-0 z-50 border-b border-white/10 bg-keoz-red text-white">
         <div className="bg-keoz-red-dark/80 text-white/70">
-          <Marquee className="py-1.5">
-            <div className="flex items-center gap-10 pr-10 text-[9px] uppercase tracking-[0.3em]">
+          <Marquee className="py-2">
+            <div className="flex items-center gap-10 pr-10 text-[15.6px] tracking-[0.01em]">
               <span>Tầm nhìn tinh tế, đẳng cấp vượt thời gian</span>
               <span className="text-white/35">•</span>
               <span>Miễn phí giao hàng toàn quốc</span>
@@ -66,7 +66,7 @@ export function SiteHeader() {
             </div>
           </Marquee>
         </div>
-        <div className="mx-auto grid h-[72px] max-w-[1600px] grid-cols-[1fr_auto_1fr] items-center px-4 sm:h-[112px] sm:px-6 lg:px-10">
+        <div className="mx-auto grid h-[72px] max-w-[1600px] grid-cols-[1fr_auto_1fr] items-center px-4 sm:h-[132px] sm:px-6 lg:px-10">
           <div className="flex items-center gap-6">
             <button
               type="button"

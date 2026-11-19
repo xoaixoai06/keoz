@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { NewsletterForm } from "@/components/newsletter-form";
+import { footerCopy } from "@/lib/wix-copy";
 
 const shopLinks = [
   { href: "/products", label: "Tất cả sản phẩm" },
@@ -30,14 +31,14 @@ export function SiteFooter() {
         <div className="grid gap-12 border-b border-white/10 py-16 lg:grid-cols-[1.25fr_0.75fr] lg:py-20">
           <div className="max-w-xl">
             <Logo className="h-10" />
-            <h2 className="mt-8 font-display text-4xl leading-[1.05] sm:text-5xl">
-              Trở thành thành viên
-              <br />
-              đặc quyền của KEOZ.
+            <p className="mt-8 text-[10px] uppercase tracking-[0.28em] text-white/40">
+              {footerCopy.tagline}
+            </p>
+            <h2 className="mt-3 font-display text-4xl leading-[1.05] sm:text-5xl">
+              {footerCopy.newsletterTitle}
             </h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-white/55">
-              Nhận quyền truy cập sớm vào các bộ sưu tập giới hạn và những câu
-              chuyện thiết kế trước khi chúng được kể.
+              {footerCopy.newsletterText}
             </p>
             <div className="mt-6">
               <NewsletterForm />

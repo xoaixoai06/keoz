@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Marquee } from "@/components/marquee";
+import { aboutCopy } from "@/lib/wix-copy";
 
 export const metadata: Metadata = {
   title: "Câu chuyện KEOZ",
@@ -78,32 +79,15 @@ export default function AboutPage() {
       <section className="mx-auto max-w-[1200px] px-4 py-16 sm:px-6 sm:py-24 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-[0.4fr_0.6fr] lg:gap-16">
           <p className="text-[10px] uppercase tracking-[0.3em] text-keoz-muted">
-            Tuyên ngôn
+            KEOZ Studio
           </p>
           <div>
-            <p className="font-display text-3xl leading-[1.15] text-balance sm:text-4xl lg:text-5xl">
-              Chúng tôi không làm kính để người ta nhìn thấy nó. Chúng tôi làm
-              kính để người ta nhìn thấy bạn.
+            <h2 className="font-display text-3xl leading-[1.15] text-balance sm:text-4xl lg:text-5xl">
+              {aboutCopy.title}
+            </h2>
+            <p className="mt-8 text-sm leading-relaxed text-keoz-muted sm:text-base">
+              {aboutCopy.text}
             </p>
-            <div className="mt-8 space-y-5 text-sm leading-relaxed text-keoz-muted sm:text-base">
-              <p>
-                KEOZ bắt đầu vào mùa đông 2019, trong một xưởng nhỏ 12m² trên phố
-                Hàng Bông. Người sáng lập — một kiến trúc sư chuyển hướng — mang
-                theo cách nhìn về tỷ lệ, khoảng trống và ánh sáng vào từng chiếc
-                gọng.
-              </p>
-              <p>
-                Chúng tôi tin rằng một chiếc kính tốt phải nhẹ đến mức bạn quên
-                mình đang đeo nó, bền đến mức theo bạn qua nhiều năm, và tinh tế
-                đến mức không ai nhớ nó là thương hiệu gì — chỉ nhớ gương mặt
-                của bạn.
-              </p>
-              <p>
-                Sáu phom dáng hiện tại là kết quả của hơn 40 bản thử nghiệm bị
-                loại bỏ. Đó cũng là lý do mỗi mẫu chỉ ra đời khi nó thực sự xứng
-                đáng.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -156,6 +140,50 @@ export default function AboutPage() {
               Xem bộ sưu tập
               <ArrowRight className="size-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Bộ sưu tập sắp ra mắt — dữ liệu từ trang Wix "SẮP RA MẮT" */}
+      <section className="bg-white">
+        <div className="mx-auto grid max-w-[1600px] grid-cols-1 sm:grid-cols-2">
+          <div className="relative aspect-[4/5] overflow-hidden bg-[#e9e6e1]">
+            <Image
+              src="/images/wix/teaser-model.jpg"
+              alt="Gương mặt KEOZ"
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="relative aspect-[4/5] overflow-hidden bg-[#e9e6e1]">
+            <Image
+              src="/images/wix/teaser-fashion.jpg"
+              alt="Phong cách KEOZ"
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover object-center"
+            />
+          </div>
+        </div>
+        <div className="mx-auto max-w-[1600px] px-4 py-14 sm:px-6 lg:px-10">
+          <p className="mb-4 text-[10px] uppercase tracking-[0.32em] text-keoz-muted">
+            Sắp ra mắt
+          </p>
+          <h2 className="font-display text-3xl leading-[0.95] sm:text-4xl">
+            {aboutCopy.designedTitle}
+          </h2>
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-keoz-muted sm:text-base">
+            {aboutCopy.designedText}
+          </p>
+          <div className="relative mt-10 aspect-[21/9] overflow-hidden bg-[#e9e6e1]">
+            <Image
+              src="/images/wix/teaser-billboard.jpg"
+              alt="KEOZ còn tiếp tục"
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
           </div>
         </div>
       </section>

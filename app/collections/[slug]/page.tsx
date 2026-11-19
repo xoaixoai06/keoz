@@ -5,11 +5,12 @@ import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { getCategories, getCategory, getProductsByCategory } from "@/lib/products";
 import { ProductCard } from "@/components/product-card";
+import { specialDesignCopy } from "@/lib/wix-copy";
 
 const heroImages: Record<string, string> = {
   eyeglasses: "/images/editorial/hero-model.jpg",
   sunglasses: "/images/products/004-2.jpg",
-  "special-design": "/images/editorial/studio-model.jpg",
+  "special-design": "/images/wix/editorial-red-glasses.jpg",
 };
 
 export async function generateStaticParams() {
@@ -85,6 +86,19 @@ export default async function CollectionPage({
           </p>
         </div>
       </section>
+
+      {slug === "special-design" ? (
+        <section className="border-b border-keoz-line bg-white">
+          <div className="mx-auto max-w-[1600px] px-4 py-12 sm:px-6 lg:px-10">
+            <h2 className="font-display text-3xl leading-none text-keoz-ink sm:text-4xl">
+              {specialDesignCopy.title}
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-keoz-muted sm:text-base">
+              {specialDesignCopy.text}
+            </p>
+          </div>
+        </section>
+      ) : null}
 
       <div className="mx-auto max-w-[1600px] px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
         <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">

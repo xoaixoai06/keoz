@@ -2,33 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { getCategories, getFeaturedProducts } from "@/lib/products";
 import { ProductCard } from "@/components/product-card";
+import { homeCopy } from "@/lib/wix-copy";
 
 const collectionImages: Record<string, string> = {
   eyeglasses: "/images/editorial/hero-model.jpg",
   sunglasses: "/images/products/004-2.jpg",
   "special-design": "/images/editorial/studio-model.jpg",
 };
-
-const studioPanels = [
-  {
-    left: "/images/editorial/studio-model.jpg",
-    right: "/images/editorial/studio-eyewear.jpg",
-    text: "Được làm từ titan siêu nhẹ, thoải mái suốt cả ngày dài.",
-    dark: false,
-  },
-  {
-    left: "/images/editorial/noir-glasses.jpg",
-    right: "/images/editorial/hero-model.jpg",
-    text: "Chất liệu siêu nhẹ, bền bỉ có nguồn gốc bền vững.",
-    dark: true,
-  },
-  {
-    left: "/images/products/004-2.jpg",
-    right: "/images/products/004-3.jpg",
-    text: "Chống tia cực tím (UV) toàn diện kết hợp lớp phủ chống phản quang tiên tiến.",
-    dark: false,
-  },
-];
 
 function StudioPanel({
   left,
@@ -105,7 +85,7 @@ export default async function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10">
               <h1 className="font-display text-4xl leading-none text-white sm:text-6xl lg:text-7xl">
-                Frame Your Vibe.
+                {homeCopy.hero}
               </h1>
             </div>
           </div>
@@ -129,10 +109,10 @@ export default async function HomePage() {
         <div className="mx-auto max-w-[1600px] px-4 py-12 sm:px-6 sm:py-16 lg:px-10">
           <div className="flex flex-col gap-3 border-b border-keoz-line pb-6 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="font-display text-4xl uppercase leading-none text-keoz-red sm:text-5xl lg:text-6xl">
-              Best Seller
+              {homeCopy.bestSeller}
             </h2>
             <p className="text-[10px] uppercase tracking-[0.24em] text-keoz-muted">
-              Định hình ánh nhìn, khẳng định chất riêng
+              {homeCopy.bestSellerNote}
             </p>
           </div>
           <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 lg:mt-10 lg:grid-cols-4">
@@ -148,9 +128,25 @@ export default async function HomePage() {
       </section>
 
       {/* Studio image panels */}
-      {studioPanels.map((panel) => (
+      <div className="bg-white px-4 pb-8 pt-12 sm:px-6 lg:px-10">
+        <h2 className="mx-auto max-w-[1600px] font-display text-3xl leading-none text-keoz-ink sm:text-4xl">
+          {homeCopy.studioHeading}
+        </h2>
+      </div>
+      {homeCopy.studio.map((panel) => (
         <StudioPanel key={panel.right} {...panel} />
       ))}
+
+      {/* Product specifications from the original Wix copy */}
+      <section className="border-b border-keoz-line bg-keoz-paper">
+        <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-x-10 gap-y-3 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-10">
+          {homeCopy.specs.map((spec) => (
+            <p key={spec} className="text-xs uppercase tracking-[0.16em] text-keoz-muted sm:text-sm">
+              {spec}
+            </p>
+          ))}
+        </div>
+      </section>
 
       {/* Collections */}
       <section className="bg-white">
@@ -176,10 +172,10 @@ export default async function HomePage() {
                 </div>
                 <div className="flex items-center justify-between gap-4 border-t border-keoz-line bg-white px-5 py-4">
                   <span className="font-display text-xl text-keoz-ink">
-                    {category.name}
+                    {homeCopy.collectionLabels[category.slug] ?? category.name}
                   </span>
                   <span className="bg-keoz-red px-5 py-2 text-[10px] uppercase tracking-[0.24em] text-white">
-                    Khám phá
+                    {homeCopy.collectionCta}
                   </span>
                 </div>
               </Link>

@@ -53,6 +53,9 @@ export function ProductCard({
           </h3>
         </div>
         <div className="text-right">
+          <p className="mb-0.5 text-[9px] uppercase tracking-[0.2em] text-keoz-muted">
+            Giá
+          </p>
           <p className={cn("text-sm", product.compareAtPrice ? "text-keoz-red" : "")}>
             {formatPrice(product.price)}
           </p>

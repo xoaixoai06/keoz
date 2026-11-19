@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { privacySections } from "@/lib/wix-copy";
 
 export const metadata: Metadata = {
   title: "Chính sách bảo mật",
@@ -8,23 +9,7 @@ export const metadata: Metadata = {
 };
 
 const sections = [
-  {
-    id: "collection",
-    title: "Dữ liệu chúng tôi thu thập",
-    body: [
-      "Khi bạn đặt hàng, chúng tôi lưu họ tên, email, số điện thoại, địa chỉ giao hàng và ghi chú đơn hàng. Những dữ liệu này cần thiết để xử lý và giao đơn.",
-      "Khi bạn đăng ký newsletter, chúng tôi chỉ lưu địa chỉ email. Giỏ hàng được lưu cục bộ trên trình duyệt của bạn (localStorage) và không gửi lên máy chủ.",
-      "Khi bạn dùng tính năng thử kính bằng camera, hình ảnh được xử lý trực tiếp trên thiết bị. Không có khung hình nào được tải lên hay lưu lại.",
-    ],
-  },
-  {
-    id: "storage",
-    title: "Dữ liệu được lưu ở đâu",
-    body: [
-      "Đơn hàng và email newsletter được lưu trong Supabase — một nền tảng cơ sở dữ liệu PostgreSQL có Row Level Security. Mỗi khách hàng chỉ có thể đọc đơn hàng gắn với email của mình.",
-      "Mật khẩu (nếu bạn tạo tài khoản) được Supabase Auth băm và không bao giờ được lưu dưới dạng văn bản thuần.",
-    ],
-  },
+  ...privacySections,
   {
     id: "shipping",
     title: "Vận chuyển & đổi trả",

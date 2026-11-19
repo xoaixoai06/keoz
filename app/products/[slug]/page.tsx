@@ -9,6 +9,7 @@ import { AddToCart } from "@/components/add-to-cart";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
 import { formatPrice } from "@/lib/format";
+import { productStories } from "@/lib/wix-copy";
 
 export async function generateStaticParams() {
   const products = await getProducts();
@@ -27,12 +28,14 @@ export async function generateMetadata({
     return { title: "Không tìm thấy sản phẩm" };
   }
 
+  const description = productStories[slug]?.intro ?? product.description;
+
   return {
     title: `${product.model} — ${product.name}`,
-    description: product.description,
+    description,
     openGraph: {
       title: `${product.model} — ${product.name} · KEOZ`,
-      description: product.description,
+      description,
       images: [{ url: product.images[0] }],
     },
   };
@@ -54,6 +57,7 @@ export default async function ProductPage({
     notFound();
   }
 
+  const story = productStories[product.slug];
   const category = categories.find((item) => item.slug === product.category);
   const related = products
     .filter((candidate) => candidate.slug !== product.slug)
@@ -115,9 +119,22 @@ export default async function ProductPage({
             ) : null}
           </div>
 
-          <p className="mt-7 max-w-lg text-sm leading-relaxed text-keoz-muted sm:text-base">
-            {product.description}
-          </p>
+          {story ? (
+            <div className="mt-7 max-w-lg">
+              {story.title ? (
+                <h2 className="font-display text-2xl leading-tight text-keoz-ink sm:text-3xl">
+                  {story.title}
+                </h2>
+              ) : null}
+              <p className="mt-3 text-sm leading-relaxed text-keoz-muted sm:text-base">
+                {story.intro}
+              </p>
+            </div>
+          ) : (
+            <p className="mt-7 max-w-lg text-sm leading-relaxed text-keoz-muted sm:text-base">
+              {product.description}
+            </p>
+          )}
 
           <AddToCart product={product} />
 
@@ -136,14 +153,42 @@ export default async function ProductPage({
             ))}
           </dl>
 
-          <ul className="mt-8 space-y-3">
-            {product.features.map((feature) => (
-              <li key={feature} className="flex gap-3 text-sm text-keoz-ink/80">
-                <BadgeCheck className="mt-0.5 size-4 shrink-0 text-keoz-red" />
-                {feature}
-              </li>
-            ))}
-          </ul>
+          {story?.bullets ? (
+            <div className="mt-8 space-y-5">
+              {story.bullets.map((bullet) => (
+                <div key={bullet.heading}>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-keoz-red">
+                    {bullet.heading}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-keoz-ink/80">
+                    {bullet.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <ul className="mt-8 space-y-3">
+              {product.features.map((feature) => (
+                <li key={feature} className="flex gap-3 text-sm text-keoz-ink/80">
+                  <BadgeCheck className="mt-0.5 size-4 shrink-0 text-keoz-red" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {story?.sizes ? (
+            <div className="mt-8 border-t border-keoz-line pt-6">
+              <p className="text-[10px] uppercase tracking-[0.22em] text-keoz-muted">
+                Kích cỡ
+              </p>
+              <ul className="mt-3 space-y-2 text-sm text-keoz-ink/80">
+                {story.sizes.map((size) => (
+                  <li key={size}>{size}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
 
           <div className="mt-10 space-y-4 border-t border-keoz-line pt-8">
             <InfoRow

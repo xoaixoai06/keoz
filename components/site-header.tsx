@@ -12,8 +12,7 @@ import { cn } from "@/lib/format";
 const navigation = [
   { href: "/", label: "Trang chủ" },
   { href: "/products", label: "Sản phẩm" },
-  { href: "/collections/eyeglasses", label: "Bộ sưu tập" },
-  { href: "/about", label: "Câu chuyện" },
+  { href: "/about", label: "Sắp ra mắt" },
   { href: "/try-on", label: "Thử kính" },
 ];
 
@@ -52,23 +51,22 @@ export function SiteHeader() {
 
   return (
     <>
-      <div className="bg-keoz-red-dark text-white/75">
-        <Marquee className="py-2">
-          <div className="flex items-center gap-10 pr-10 text-[9px] uppercase tracking-[0.3em]">
-            <span>Tầm nhìn tinh tế, đẳng cấp vượt thời gian</span>
-            <span className="text-white/35">•</span>
-            <span>Miễn phí giao hàng toàn quốc</span>
-            <span className="text-white/35">•</span>
-            <span>KEOZ Studio 2026</span>
-            <span className="text-white/35">•</span>
-            <span>Thử kính bằng camera</span>
-            <span className="text-white/35">•</span>
-          </div>
-        </Marquee>
-      </div>
-
       <header className="sticky top-0 z-50 border-b border-white/10 bg-keoz-red text-white">
-        <div className="mx-auto grid h-[72px] max-w-[1600px] grid-cols-[1fr_auto_1fr] items-center px-4 sm:h-[86px] sm:px-6 lg:px-10">
+        <div className="bg-keoz-red-dark/80 text-white/70">
+          <Marquee className="py-1.5">
+            <div className="flex items-center gap-10 pr-10 text-[9px] uppercase tracking-[0.3em]">
+              <span>Tầm nhìn tinh tế, đẳng cấp vượt thời gian</span>
+              <span className="text-white/35">•</span>
+              <span>Miễn phí giao hàng toàn quốc</span>
+              <span className="text-white/35">•</span>
+              <span>KEOZ Studio 2026</span>
+              <span className="text-white/35">•</span>
+              <span>Thử kính bằng camera</span>
+              <span className="text-white/35">•</span>
+            </div>
+          </Marquee>
+        </div>
+        <div className="mx-auto grid h-[72px] max-w-[1600px] grid-cols-[1fr_auto_1fr] items-center px-4 sm:h-[112px] sm:px-6 lg:px-10">
           <div className="flex items-center gap-6">
             <button
               type="button"
@@ -79,13 +77,13 @@ export function SiteHeader() {
               <Menu className="size-5" />
             </button>
 
-            <nav className="hidden items-center gap-6 lg:flex" aria-label="Điều hướng chính">
+            <nav className="hidden items-center gap-7 lg:flex" aria-label="Điều hướng chính">
               {navigation.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "border-b pb-1 text-[10px] uppercase tracking-[0.24em] transition-colors",
+                    "border-b pb-1 text-[11px] uppercase tracking-[0.22em] transition-colors sm:text-xs",
                     isActive(item.href)
                       ? "border-white text-white"
                       : "border-transparent text-white/80 hover:border-white/50 hover:text-white",
@@ -98,7 +96,7 @@ export function SiteHeader() {
           </div>
 
           <Link href="/" aria-label="KEOZ — Trang chủ" className="justify-self-center">
-            <Logo className="h-7 sm:h-9" />
+            <Logo className="h-9 sm:h-14 lg:h-16" />
           </Link>
 
           <div className="flex items-center justify-end gap-3 sm:gap-5">

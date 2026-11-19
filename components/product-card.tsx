@@ -17,7 +17,7 @@ export function ProductCard({
 
   return (
     <Link href={`/products/${product.slug}`} className="group block">
-      <div className="relative aspect-[4/5] overflow-hidden bg-[#ece9e4]">
+      <div className="relative aspect-[4/3] overflow-hidden bg-[#ece9e4]">
         <Image
           src={first}
           alt={`${product.model} — ${product.name}`}

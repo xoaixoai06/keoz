@@ -129,6 +129,7 @@ Chưa xong / cần làm khi có điều kiện:
 - 19/11/2026 — thử nâng cấp motion UI rồi revert theo yêu cầu, giữ giao diện bản trước; vẫn giữ vá hardening giỏ/camera/sitemap, AR và thanh toán.
 - 19/11/2026 — thiết kế lại trang chủ theo bố cục hình ảnh của Wix: hero "Frame Your Vibe.", BEST SELLER 4 cột, 3 panel KEOZ Studio 2026, bộ sưu tập 2 card, ảnh full-bleed; bỏ film/statement khỏi trang chủ (vẫn giữ AR ở nav/trang sản phẩm).
 - 19/11/2026 — dùng bộ dữ liệu Wix lưu tại `D:\XOAI\Documents\KEOZ` cho toàn site: copy chuẩn trong `lib/wix-copy.ts`, ảnh mới trong `public/images/wix/`, áp cho home/product/about/collection/account/privacy/footer; giữ nguyên AR, checkout, Supabase.
+- 19/11/2026 — chỉnh bố cục sát Wix hơn: marquee nằm trong header đỏ, nav 4 mục (Trang chủ/Sản phẩm/Sắp ra mắt/Thử kính), logo to, thẻ sản phẩm 4 cột ảnh 4:3.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

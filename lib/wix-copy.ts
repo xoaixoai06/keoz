@@ -15,15 +15,15 @@ export const homeCopy = {
     },
     {
       text: "Chất liệu siêu nhẹ, bền bỉ có nguồn gốc bền vững",
-      left: "/images/editorial/noir-glasses.jpg",
-      right: "/images/editorial/hero-model.jpg",
+      left: "/images/wix/panel2-left.jpg",
+      right: "/images/wix/panel2-right.jpg",
       dark: true,
     },
     {
       text: "Chống tia cực tím (UV) toàn diện kết hợp lớp phủ chống phản quang tiên tiến.",
-      left: "/images/products/004-2.jpg",
-      right: "/images/products/004-3.jpg",
-      dark: false,
+      left: "/images/wix/panel3-left.jpg",
+      right: "/images/wix/panel3-right.jpg",
+      dark: true,
     },
   ],
   specs: [

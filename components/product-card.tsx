@@ -8,10 +8,12 @@ export function ProductCard({
   product,
   priority = false,
   sizes = "(min-width: 1024px) 33vw, 50vw",
+  compact = false,
 }: {
   product: Product;
   priority?: boolean;
   sizes?: string;
+  compact?: boolean;
 }) {
   const [first, second] = product.images;
 
@@ -43,6 +45,15 @@ export function ProductCard({
         ) : null}
       </div>
 
+      {compact ? (
+        <div className="mt-2 flex items-baseline justify-between gap-2 text-[11px] text-keoz-muted">
+          <span>{product.model}</span>
+          <span className="flex items-baseline gap-1.5">
+            <span>Giá</span>
+            <span className="text-keoz-ink">{formatPrice(product.price)}</span>
+          </span>
+        </div>
+      ) : (
       <div className="mt-4 flex items-start justify-between gap-3">
         <div>
           <p className="text-[10px] uppercase tracking-[0.24em] text-keoz-muted">
@@ -66,6 +77,7 @@ export function ProductCard({
           ) : null}
         </div>
       </div>
+      )}
     </Link>
   );
 }

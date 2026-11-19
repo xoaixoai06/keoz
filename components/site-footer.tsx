@@ -1,21 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { Logo } from "@/components/logo";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { footerCopy } from "@/lib/wix-copy";
 
-const shopLinks = [
-  { href: "/products", label: "Tất cả sản phẩm" },
-  { href: "/collections/eyeglasses", label: "Gọng kính" },
-  { href: "/collections/sunglasses", label: "Kính mát" },
-  { href: "/collections/special-design", label: "Thiết kế đặc biệt" },
-];
-
-const aboutLinks = [
-  { href: "/about", label: "Câu chuyện KEOZ" },
+const overviewLinks = [
+  { href: "/", label: "Trang chủ" },
+  { href: "/products", label: "Sản phẩm" },
+  { href: "/about", label: "Sắp ra mắt" },
   { href: "/try-on", label: "Thử kính" },
-  { href: "/account", label: "Tài khoản" },
-  { href: "/cart", label: "Giỏ hàng" },
 ];
 
 const policyLinks = [
@@ -26,65 +19,83 @@ const policyLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-keoz-red/40 bg-keoz-ink text-keoz-cream">
-      <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10">
-        <div className="grid gap-12 border-b border-white/10 py-16 lg:grid-cols-[1.25fr_0.75fr] lg:py-20">
-          <div className="max-w-xl">
-            <Logo className="h-10" />
-            <p className="mt-8 text-[10px] uppercase tracking-[0.28em] text-white/40">
-              {footerCopy.tagline}
-            </p>
-            <h2 className="mt-3 font-display text-4xl leading-[1.05] sm:text-5xl">
-              {footerCopy.newsletterTitle}
-            </h2>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-white/55">
-              {footerCopy.newsletterText}
-            </p>
-            <div className="mt-6">
-              <NewsletterForm />
-            </div>
+    <footer className="bg-white text-keoz-ink">
+      {/* Red newsletter band — like the original Wix site */}
+      <div className="bg-keoz-red text-white">
+        <div className="mx-auto max-w-[720px] px-4 py-12 text-center sm:px-6 sm:py-16 lg:px-10">
+          <p className="mb-3 text-[10px] uppercase tracking-[0.28em] text-white/60">
+            {footerCopy.tagline}
+          </p>
+          <h2 className="font-display text-3xl leading-tight sm:text-4xl">
+            {footerCopy.newsletterTitle}
+          </h2>
+          <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-white/75">
+            {footerCopy.newsletterText}
+          </p>
+          <div className="mx-auto mt-6 max-w-md text-left">
+            <NewsletterForm />
           </div>
+        </div>
+      </div>
 
-          <div className="grid grid-cols-2 gap-8">
-            <FooterColumn title="Cửa hàng" links={shopLinks} />
-            <FooterColumn title="KEOZ" links={aboutLinks} />
-            <FooterColumn title="Chính sách" links={policyLinks} />
-            <div>
-              <p className="mb-5 text-[10px] uppercase tracking-[0.28em] text-white/40">
-                Liên hệ
-              </p>
-              <ul className="space-y-4 text-sm text-white/65">
-                <li className="flex gap-3">
-                  <MapPin className="mt-0.5 size-4 shrink-0 text-keoz-red" />
-                  Hà Nội, Việt Nam
-                </li>
-                <li>
-                  <a
-                    href="mailto:contact@keozeyewear.com"
-                    className="flex min-w-0 gap-3 transition-colors hover:text-white"
-                  >
-                    <Mail className="mt-0.5 size-4 shrink-0 text-keoz-red" />
-                    <span>
-                      contact@<wbr />
-                      keozeyewear.com
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="tel:+84901234567"
-                    className="flex gap-3 transition-colors hover:text-white"
-                  >
-                    <Phone className="mt-0.5 size-4 shrink-0 text-keoz-red" />
-                    +84 901 234 567
-                  </a>
-                </li>
-              </ul>
-            </div>
+      {/* White information footer */}
+      <div className="mx-auto max-w-[1600px] px-4 py-12 sm:px-6 lg:px-10">
+        <div className="grid gap-10 sm:grid-cols-3">
+          <FooterColumn title="Tổng quan" links={overviewLinks} />
+          <FooterColumn title="Chính sách" links={policyLinks} />
+          <div>
+            <p className="mb-5 text-[10px] uppercase tracking-[0.28em] text-keoz-muted">
+              Liên hệ
+            </p>
+            <ul className="space-y-4 text-sm text-keoz-ink/75">
+              <li className="flex gap-3">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-keoz-red" />
+                Hà Nội, Việt Nam
+              </li>
+              <li>
+                <a
+                  href="mailto:contact@keozeyewear.com"
+                  className="flex gap-3 transition-colors hover:text-keoz-red"
+                >
+                  <Mail className="mt-0.5 size-4 shrink-0 text-keoz-red" />
+                  Email: contact@keozeyewear.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+84901234567"
+                  className="flex gap-3 transition-colors hover:text-keoz-red"
+                >
+                  <Phone className="mt-0.5 size-4 shrink-0 text-keoz-red" />
+                  Hotline: +84 901 234 567
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="flex flex-col gap-6 py-8 text-[10px] uppercase tracking-[0.22em] text-white/35 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+          <div className="relative aspect-[713/625] overflow-hidden bg-[#e9e6e1]">
+            <Image
+              src="/images/wix/footer-left.jpg"
+              alt="Gọng kính KEOZ"
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="relative aspect-[713/625] overflow-hidden bg-[#e9e6e1]">
+            <Image
+              src="/images/wix/footer-right.jpg"
+              alt="KEOZ Studio"
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover object-center"
+            />
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-4 border-t border-keoz-line pt-6 text-[10px] uppercase tracking-[0.22em] text-keoz-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 KEOZ Eyewear. Thiết kế tại Hà Nội.</p>
           <div className="flex gap-6">
             <a href="https://instagram.com" target="_blank" rel="noreferrer">
@@ -103,24 +114,18 @@ export function SiteFooter() {
   );
 }
 
-function FooterColumn({
-  title,
-  links,
-}: {
-  title: string;
-  links: Array<{ href: string; label: string }>;
-}) {
+function FooterColumn({ title, links }: { title: string; links: Array<{ href: string; label: string }> }) {
   return (
     <div>
-      <p className="mb-5 text-[10px] uppercase tracking-[0.28em] text-white/40">
+      <p className="mb-5 text-[10px] uppercase tracking-[0.28em] text-keoz-muted">
         {title}
       </p>
-      <ul className="space-y-3">
+      <ul className="space-y-3 text-sm">
         {links.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
-              className="text-sm text-white/65 transition-colors hover:text-white"
+              className="text-keoz-ink/75 transition-colors hover:text-keoz-red"
             >
               {link.label}
             </Link>

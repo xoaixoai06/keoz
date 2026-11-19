@@ -5,8 +5,8 @@ import { ProductCard } from "@/components/product-card";
 import { homeCopy } from "@/lib/wix-copy";
 
 const collectionImages: Record<string, string> = {
-  eyeglasses: "/images/editorial/hero-model.jpg",
-  sunglasses: "/images/products/004-2.jpg",
+  eyeglasses: "/images/wix/collection-eyeglasses.png",
+  sunglasses: "/images/wix/collection-sunglasses.jpg",
   "special-design": "/images/editorial/studio-model.jpg",
 };
 
@@ -34,11 +34,24 @@ function StudioPanel({
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover object-center"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/25" />
           {heading ? (
             <p className="absolute left-5 top-5 text-[26px] font-semibold leading-tight text-white drop-shadow-sm">
               {heading}
             </p>
           ) : null}
+          <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-0 sm:flex-row sm:items-end sm:gap-5 sm:p-6 lg:p-8">
+            <div className="shrink-0 bg-keoz-red px-7 py-6 text-2xl font-semibold leading-[1.05] text-white sm:text-[28px]">
+              KEOZ
+              <br />
+              STUDIO
+              <br />
+              2026
+            </div>
+            <p className="max-w-[230px] bg-white px-6 py-5 text-[15.6px] leading-relaxed text-keoz-red">
+              {text}
+            </p>
+          </div>
         </div>
         <div className="relative aspect-[4/3] overflow-hidden bg-[#e9e6e1] lg:aspect-auto lg:min-h-[840px]">
           <Image
@@ -48,19 +61,6 @@ function StudioPanel({
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-0 p-0 sm:flex-row sm:items-end sm:gap-5 sm:p-6 lg:p-8">
-            <div className="shrink-0 bg-keoz-red px-6 py-5 font-display text-xl leading-[1.05] text-white sm:text-2xl">
-              KEOZ
-              <br />
-              STUDIO
-              <br />
-              2026
-            </div>
-            <p className="max-w-xs bg-white px-6 py-5 text-[15.6px] leading-relaxed text-keoz-red">
-              {text}
-            </p>
-          </div>
         </div>
       </div>
     </section>
@@ -128,6 +128,7 @@ export default async function HomePage() {
                 key={product.slug}
                 product={product}
                 priority={index < 4}
+                compact
               />
             ))}
           </div>
@@ -165,7 +166,7 @@ export default async function HomePage() {
               <Link
                 key={category.slug}
                 href={`/collections/${category.slug}`}
-                className="group block overflow-hidden bg-keoz-cream"
+                className="group block bg-white"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#e9e6e1]">
                   <Image
@@ -175,15 +176,13 @@ export default async function HomePage() {
                     sizes="(min-width: 640px) 50vw, 100vw"
                     className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
                   />
-                </div>
-                <div className="flex items-center justify-between gap-4 border-t border-keoz-line bg-white px-5 py-4">
-                  <span className="text-[22px] font-medium text-keoz-red">
-                    {homeCopy.collectionLabels[category.slug] ?? category.name}
-                  </span>
-                  <span className="bg-keoz-red px-5 py-2 text-[10px] uppercase tracking-[0.24em] text-white">
+                  <span className="absolute bottom-0 right-0 bg-keoz-red px-7 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white">
                     {homeCopy.collectionCta}
                   </span>
                 </div>
+                <p className="pt-3 text-[22px] font-medium text-keoz-red">
+                  {homeCopy.collectionLabels[category.slug] ?? category.name}
+                </p>
               </Link>
             ))}
           </div>
@@ -193,7 +192,7 @@ export default async function HomePage() {
       {/* Full-bleed sunglasses image */}
       <section className="relative aspect-[4/3] overflow-hidden bg-[#e9e6e1] sm:aspect-[21/9]">
         <Image
-          src="/images/products/004-2.jpg"
+          src="/images/wix/full-bleed.jpg"
           alt="Kính mát KEOZ"
           fill
           sizes="100vw"

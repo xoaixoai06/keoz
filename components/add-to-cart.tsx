@@ -57,7 +57,7 @@ export function AddToCart({ product }: { product: Product }) {
         <button
           type="button"
           onClick={add}
-          className="btn-sheen h-12 flex-1 bg-keoz-red px-6 text-[11px] uppercase tracking-[0.24em] text-white transition-colors hover:bg-keoz-red-dark"
+          className="h-12 flex-1 bg-keoz-red px-6 text-[11px] uppercase tracking-[0.24em] text-white transition-colors hover:bg-keoz-red-dark"
         >
           {added ? "Đã thêm vào giỏ" : "Thêm vào giỏ"}
         </button>

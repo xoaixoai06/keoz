@@ -126,7 +126,7 @@ Chưa xong / cần làm khi có điều kiện:
 - 19/11/2026 — đổi nhãn "AR/VR" thành "Thử kính", route `/try-on` (giữ redirect `/ar-vr`).
 - 19/11/2026 — deploy Vercel `cmcu1/keoz` → https://keoz.vercel.app; repo GitHub `xoaixoai06/keoz`.
 - 19/11/2026 — audit bảo mật quick profile (17 unit, 0 confirmed, 3 needs-validation) tại `C:\Users\Admin\security-audit-skill\keoz\run-1`.
-- 19/11/2026 — nâng cấp UI/UX toàn diện (scroll reveal, hover, ken-burns, sheen, progress bar) + vá hardening giỏ/camera/sitemap.
+- 19/11/2026 — thử nâng cấp motion UI rồi revert theo yêu cầu, giữ giao diện bản trước; vẫn giữ vá hardening giỏ/camera/sitemap, AR và thanh toán.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
